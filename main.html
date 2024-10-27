@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リンクル店</title>
+  <style>
+    /* 全体のスタイル */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* 固定タイトルバー */
+    .header {
+      width: 100%;
+      padding: 40px;
+      background-color: #333;
+      color: white;
+      text-align: center;      
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .headered {
+      width: 100%;
+      padding: 40px;
+      float: left;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .headered a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* 左側リンクメニュー */
+    .sidebar {
+      width: 200px;
+      background-color: #f4f4f4;
+      padding-top: 140px; /* タイトルバーの高さを考慮 */
+      height: 100%;
+      position: fixed;
+      top: 0;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .link {
+      /*display: flex;*/
+      /*align-items: center;*/
+      /*gap: 5px;*/
+      /*padding: 20px 30px;*/
+      transition: color .15s;
+      float: right;
+      position: fixed;
+      top: 2%;
+      right: 0;
+      z-index: 1;
+    }
+
+    .link:hover,
+    .link:focus-within {
+      color: hotpink;
+    }
+
+    .dropDown {
+      position: absolute;
+      bottom: 0;
+      display: none;
+      padding: 5px;
+      background-color: #fff;
+      box-shadow: 0px 3px 8px -2px #777;
+      color: initial;
+      transform: translate(0, 100%);
+    }
+
+    .link:hover > .dropDown,
+    .link:focus-within > .dropDown {
+      display: block;
+    }
+
+    .dropDown__list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+
+    .dropDown__link {
+      padding: 10px 20px;
+      transition: color .15s
+    }
+    .dropDown__link:hover,
+    .dropDown__link:focus {
+      color: hotpink;
+    }
+
+
+
+    /* リンクのスタイル */
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      color: #007bff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .sidebar a:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* メインコンテンツ */
+    .content {
+      margin-left: 220px; /* サイドバー分のスペースを確保 */
+      padding: 130px 20px 20px 20px; /* タイトルバーとサイドバーのスペースを確保 */
+      height: 100vh;
+    }
+
+    /* 非表示のコンテンツ */
+    .content div {
+      display: none;
+    }
+
+    /* 表示中のコンテンツ */
+    .content div.active {
+      display: block;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- 固定タイトルバー -->
+  <div class="header">shiramine</div>
+  <div class="headered">
+    <a href="#content1" onclick="showContent(event, 'content1')">リンクル店</a>
+  </div>
+
+  <!-- 左側のリンクエリア -->
+  <div class="sidebar">
+    <a href="#content1" onclick="showContent(event, 'content1')">Motte ke!</a>
+    <a href="#content2" onclick="showContent(event, 'content2')">雪だるまカフェ</a>
+    <a href="#content3" onclick="showContent(event, 'content3')">木下商店</a>
+    <a href="#content4" onclick="showContent(event, 'content4')">永井商店</a>
+    <a href="#content5" onclick="showContent(event, 'content5')">菜さい</a>
+    <a href="#content6" onclick="showContent(event, 'content6')">志んさ本舗</a>
+    <a href="#content7" onclick="showContent(event, 'content7')">池内商店</a>
+    <a href="#content8" onclick="showContent(event, 'content8')">久司石油</a>
+  </div>
+
+
+  <nav class="nav">
+
+      <li class="list__item">
+        <div class="link link-hover" tabindex="0">
+          <img src="aicon.png" width="170px" height="80px" align="right">
+          <div class="dropDown">
+            <ul class="dropDown__list">
+              <li class="dropDown__item">
+                <a href="#content9" class="dropDown__link">データ入力</a>
+              </li>
+              <li class="dropDown__item">
+                <a href="#content10" class="dropDown__link">パスワード変更</a>
+              </li>
+              <li class="dropDown__item">
+                <a href="#content11" class="dropDown__link">ログアウト</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+   
+  </nav>
+  
+  
+  <!-- メインコンテンツエリア -->
+  <div class="content">
+    <div id="content1" class="active">これは画面1のコンテンツです。
+      <iframe src="./gulf.html" width="200px" height="200px"></iframe>
+    </div>
+    <div id="content2">これは画面2のコンテンツです。</div>
+    <div id="content3">これは画面3のコンテンツです。</div>
+    <div id="content4">これは画面4のコンテンツです。</div>
+    <div id="content5">これは画面5のコンテンツです。</div>
+    <div id="content6">これは画面6のコンテンツです。</div>
+    <div id="content7">これは画面7のコンテンツです。</div>
+    <div id="content8">これは画面8のコンテンツです。</div>
+  </div>
+
+  <script>
+    function showContent(event, contentId) {
+      event.preventDefault(); // デフォルト動作の無効化
+
+      // コンテンツの非表示
+      const contents = document.querySelectorAll('.content div');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // 指定コンテンツの表示
+      const targetContent = document.getElementById(contentId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+    }
+
+
+
+  </script>
+</body>
+</html>
