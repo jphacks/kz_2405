@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS CHART</title>
+    <link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">
+    <style>
+    #my-chart {
+      position: relative;
+      height: 150px;
+      width: 150px;
+      max-width: 75%;
+      margin: 0 auto;
+    }
+    #my-chart > table {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    #my-column {
+      --color: lightblue;
+    }
+    #my-line {
+      --color: darkgreen;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="my-chart">
+
+      <table class="charts-css column show-heading show-labels data-spacing-20 show-primary-axis" id="my-column">
+        <caption>未購入者数 </caption>
+        <tbody>
+          <tr><th scope="row"> 27 </th><td style="--size: calc( 1 / 20 );"> 1 </td></tr>
+          
+        </tbody>
+      </table>
+
+      <!--<table class="charts-css line" id="my-line">
+        <tbody>
+          <tr><th scope="row"> 2020/7 </th><td style="--start: 0.2; --size: 0.8;"></td></tr>
+          <tr><th scope="row"> 2020/8 </th><td style="--start: 0.8; --size: 0.6;"></td></tr>
+          <tr><th scope="row"> 2020/9 </th><td style="--start: 0.6; --size: 0.7;"></td></tr>
+          <tr><th scope="row"> 2020/10 </th><td style="--start: 0.7; --size: 0.9;"></td></tr>
+        </tbody>
+      </table>-->
+
+    </div>
+  </body>
+</html>
